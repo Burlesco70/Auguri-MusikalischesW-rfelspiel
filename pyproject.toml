@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "wurfelspiel"
-version = "0.1.0"
-description = ""
+name = "Auguri-MusikalischesWurfelspiel"
+version = "1.0"
+description = "Script per generare un video di auguri musicali basato sul gioco compositivo Musikalisches Würfelspiel"
 authors = ["Burlesco70 <mario.nardi.70@gmail.com>"]
 license = "MIT"
 
