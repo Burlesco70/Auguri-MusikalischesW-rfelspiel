@@ -1,0 +1,11 @@
+*~
+.DS_Store
+.idea
+.env
+*.wav
+*.mp4
+*.png
+*.midi
+*.mid
+*.pdf
+poetry.lock
