@@ -21,12 +21,7 @@ import random
 import re
 import subprocess
 import sys
-from loguru import logger
 from dotenv import load_dotenv
-
-# LILYPOND_EXECUTABLE = 'F:\\Programmi\\LilyPond\\usr\\bin\\lilypond.exe'
-# TIMIDITY_EXECUTABLE = 'F:\\Programmi\\TiMidity++-2.15.0\\timidity.exe'
-# FFMPEG_EXECUTABLE = 'C:\\ffmpeg\\bin\\ffmpeg.exe'
 
 def path(filename):
     return os.path.join(os.path.dirname(__file__), filename)
@@ -103,12 +98,9 @@ def get_factors(n):
     Se n < 11: ritorna il valore; altrimenti ritorna il valore % 11 e 
     richiama ricorsivamente sul valore intero della divisione per 11
     '''
-    # logger.debug(n)
     if n < 11:
         return [n]
     else:
-        # logger.debug(n % 11)
-        # logger.debug(n // 11)
         return [n % 11] + get_factors(n // 11)
 
 
@@ -116,15 +108,6 @@ def get_parts(number=None):
     '''
     Calcola numero e simula i 16 lanci di dado (factors)
     '''
-    # if number is None:
-    #     if not os.path.exists('.current'):
-    #         open('.current', 'w').close()
-
-    #     with open('.current', 'r+') as f:
-    #         number = int(f.read().strip() or 0)
-    #         f.seek(0)
-    #         f.write(str(number + 1))
-    #         f.truncate()
     factors = get_factors(number)
     # Prendo 16 "estrazioni", perchè le battute sono 16
     if len(factors) > 16:
@@ -159,11 +142,6 @@ def generate_part(first_half, repeat_notes, second_half, half, spacer):
     first_half, repeat_notes, second_half sono liste di tuple corrispondenti alle battute
     ripettivamente di 7, 2 e 8 elementi
     '''
-    # logger.debug(len(first_half))
-    # logger.debug(repeat_notes)
-    # logger.debug(len(second_half))
-    # logger.debug(half)
-    # logger.debug(spacer)
     return \
         '{}\\repeat volta 2 {{\n{}'.format(spacer, spacer) + \
         '\n{}'.format(spacer).join(map(lambda note: note[half], first_half)) + \
@@ -282,7 +260,7 @@ if __name__ == '__main__':
     # Parametri per gli auguri
     dedicated_to = None
     title = "Minuetto di Auguri per un meraviglioso 2023"
-    greetings_from = "Python Biella Group"
+    greetings_from = "Mario e Maura"
     if len(sys.argv) > 1:
         dedicated_to=sys.argv[1]        
     # Main
