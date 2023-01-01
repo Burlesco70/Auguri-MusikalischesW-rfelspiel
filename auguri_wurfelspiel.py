@@ -1,5 +1,5 @@
 # coding:utf-8
-# Copyright 2018 Moisés Cachay
+# Copyright 2022-3 Mario Nardi sulla base dei un lavoro di Moisés Cachay
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Musikalisches Würfelspiel
+# Info su Musikalisches Würfelspiel
 # https://dice.humdrum.org/
 
 import os
