@@ -215,6 +215,7 @@ def generate_song(parts=None, number=None, dedicated_to=None, title=None, greeti
     if dedicated_to:
         out_file = dedicated_to
 
+    # Carica i percorsi degli eseguibili
     load_dotenv()
     LILYPOND_EXECUTABLE = os.getenv("LILYPOND_EXECUTABLE")
     TIMIDITY_EXECUTABLE = os.getenv("TIMIDITY_EXECUTABLE")
@@ -260,12 +261,12 @@ if __name__ == '__main__':
     # Parametri per gli auguri
     dedicated_to = None
     title = "Minuetto di Auguri per un meraviglioso 2023"
-    greetings_from = "Mario e Maura"
+    greetings_from = "Python Biella Group"
     if len(sys.argv) > 1:
         dedicated_to=sys.argv[1]        
     # Main
     parts, number = generate_song(
-        #Anzichè lanciare due dadi per 16 volte... 
+        # Anzichè lanciare due dadi per 16 volte, viene generato un numero molto alto e... 
         number=random.randint(0, (11**16) - 1),
         dedicated_to=dedicated_to,
         title=title,
