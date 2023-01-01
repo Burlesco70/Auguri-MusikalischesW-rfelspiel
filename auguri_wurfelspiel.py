@@ -118,18 +118,17 @@ def get_parts(number=None):
     return number, factors
 
 
-def update_header(header, number, parts, dedicated_to, title, greetings_from):
+def update_header(header, parts, dedicated_to, title, greetings_from):
     '''
-    Sostituisce il placeholder #id# con quello che si vuole
-    Originariamente il numero casuale  e la sequenza "lancio dadi" calcolata
+    Personalizza lo spartito sostituendo i placeholder
+    #gf#, #title# e #id# con quello che si vuole
+    Nello script originale, il numero casuale e la sequenza "lancio dadi" calcolata
     '''
     if not dedicated_to:
         dedicated = 'Unicamente generato'
     else:
         dedicated = 'Unicamente generato per ' + dedicated_to
-    header = header.replace('#title#', title)
-    header = header.replace("#gf#", greetings_from) 
-    return header.replace(
+    return header.replace("#gf#", greetings_from).replace('#title#', title).replace(
         '#id#',
         '{}: {}'.format(dedicated + ", con la combinazione", ','.join(map(lambda p: str(p + 2), parts)))
     )
@@ -196,7 +195,7 @@ def generate_score(parts=None, number=None, dedicated_to=None, title=None, greet
     ))
 
     generated_score = \
-        update_header(header, number, parts, dedicated_to, title, greetings_from) + \
+        update_header(header, parts, dedicated_to, title, greetings_from) + \
         first_separator + \
         generate_part(first_half_notes, repeat_notes, second_half_notes, 0, spacer) + \
         second_separator + \
